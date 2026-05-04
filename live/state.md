@@ -3,8 +3,8 @@
 *Updated at the end of each session. Read this FIRST on startup.*
 
 ## Last Session
-- **Date:** 2026-04-29
-- **Summary:** EA command centre setup complete. Onboarding finished.
+- **Date:** 2026-05-04
+- **Summary:** Updated Zapier MCP config — changed `type` from `"url"` to `"http"` in both `.mcp.json` and `.claude/mcp.json`. Restart required to activate.
 
 ## Open Tasks
 - Define Q2 2026 quarterly goals

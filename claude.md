@@ -1,4 +1,10 @@
-# CLAUDE.md — Executive Assistant Command Centre
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
+
+# Executive Assistant Command Centre
 *fttah's second brain. Powered by the Three Engine Model.*
 
 ---
@@ -79,7 +85,7 @@ Ranked by time saved and frequency:
 3. **Client onboarding** — End-to-end flow from first contact to kick-off.
 4. **Frequent question replies** — Draft responses to common client questions.
 5. **Social media posts** — LinkedIn content pipeline.
-6. **Morning briefing** — Daily digest: calendar, priorities, open tasks.
+6. ~~**Morning briefing**~~ — ✓ Built. See `blueprints/morning-briefing.md` (MB-001).
 
 To build any of these: say "Build a skill for [task]."
 
@@ -104,10 +110,13 @@ To build any of these: say "Build a skill for [task]."
 |---|---|
 | intel/ | Context: founder, stack, crew, focus, wins |
 | live/ | State, tasks, active project folders |
+| briefings/ | Daily morning briefing outputs (YYYY-MM-DD.md) |
 | decisions/ledger.md | Append-only decision log |
-| blueprints/ | Workflow SOPs — read before every run |
+| blueprints/ | Workflow SOPs — read before every run. Live: CBH-001, MB-001 |
 | equipment/ | Python scripts — one job each |
+| templates/ | Reusable doc templates (closeout, session-brief) |
 | references/goldstandard/ | Output quality benchmark |
+| references/playbooks/ | Playbooks for recurring situations |
 | .claude/rules/ | Auto-loaded: voice.md, permissions.md |
 | archive/ | Nothing deleted — moved here instead |
 

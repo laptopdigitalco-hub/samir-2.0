@@ -82,7 +82,7 @@ Ranked by time saved and frequency:
 
 1. **Invoice creation** — Build this first. Biggest time sink, fully templatable.
 2. ~~**Quote generation / Proposal**~~ — ✓ Built. See `blueprints/proposal-generation.md` (PROP-001).
-3. **Client onboarding** — End-to-end flow from first contact to kick-off.
+3. ~~**Client onboarding**~~ — ✓ Built. See `blueprints/client-onboarding.md` (COB-001).
 4. **Frequent question replies** — Draft responses to common client questions.
 5. **Social media posts** — LinkedIn content pipeline.
 6. ~~**Morning briefing**~~ — ✓ Built. See `blueprints/morning-briefing.md` (MB-001).
@@ -113,7 +113,7 @@ To build any of these: say "Build a skill for [task]."
 | live/ | State, tasks, active project folders |
 | briefings/ | Daily morning briefing outputs (YYYY-MM-DD.md) |
 | decisions/ledger.md | Append-only decision log |
-| blueprints/ | Workflow SOPs — read before every run. Live: CBH-001, MB-001, PMS-001, LFU-001, PROP-001 |
+| blueprints/ | Workflow SOPs — read before every run. Live: CBH-001, MB-001, PMS-001, LFU-001, PROP-001, COB-001 |
 | equipment/ | Python scripts — one job each |
 | templates/ | Reusable doc templates (closeout, session-brief) |
 | references/goldstandard/ | Output quality benchmark |

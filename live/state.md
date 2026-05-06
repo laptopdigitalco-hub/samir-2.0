@@ -3,8 +3,8 @@
 *Updated at the end of each session. Read this FIRST on startup.*
 
 ## Last Session
-- **Date:** 2026-05-04
-- **Summary:** Updated Zapier MCP config — changed `type` from `"url"` to `"http"` in both `.mcp.json` and `.claude/mcp.json`. Restart required to activate.
+- **Date:** 2026-05-06
+- **Summary:** Reviewed pipeline-summary command setup. Session ended cleanly — no new tasks or decisions logged.
 
 ## Open Tasks
 - Define Q2 2026 quarterly goals

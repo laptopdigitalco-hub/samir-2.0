@@ -9,3 +9,5 @@ token.json
 .claude/mcp.json
 *.pyc
 __pycache__/
+
+.trigger

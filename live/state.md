@@ -3,8 +3,8 @@
 *Updated at the end of each session. Read this FIRST on startup.*
 
 ## Last Session
-- **Date:** 2026-05-06
-- **Summary:** Reviewed pipeline-summary command setup. Session ended cleanly — no new tasks or decisions logged.
+- **Date:** 2026-05-10
+- **Summary:** Diagnosed daily project audit routine — stuck at "setting up a cloud container" on claude.ai remote agent infrastructure. Platform-level issue, not prompt or Gmail. Gmail MCP confirmed working. No code changes made.
 
 ## Open Tasks
 - Define Q2 2026 quarterly goals

@@ -15,7 +15,6 @@ Auth:
 
 import io
 import os
-import json
 from datetime import date, timedelta
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -32,7 +31,10 @@ SCOPES = [
 
 CREDENTIALS_FILE = "credentials.json"
 TOKEN_FILE = "token.json"
-PARENT_FOLDER_ID = "1uz6Kbew8313FJIcAb7iQ5DCWQXJ-BeOR"  # fttah's Drive folder
+
+# Sensitive config — set these as environment variables (never hardcode real values here).
+# Add them to a .env file and load with: pip install python-dotenv, then dotenv.load_dotenv()
+PARENT_FOLDER_ID = os.environ["DRIVE_FOLDER_ID"]
 
 # ── Proposal data ─────────────────────────────────────────────────────────────
 
@@ -63,13 +65,13 @@ BUSINESS = {
     "legal_entity": "Arabic AI Agents FZ-LLC",
     "founder": "fttah",
     "founder_role": "Founder & Managing Director",
-    "trade_licence": "DET-1234567",
+    "trade_licence": os.environ["TRADE_LICENCE"],
     "jurisdiction": "Dubai Internet City Free Zone, UAE",
-    "vat_number": "100123456700003",
-    "corp_tax_trn": "100123456700003",
+    "vat_number": os.environ["VAT_NUMBER"],
+    "corp_tax_trn": os.environ["CORP_TAX_TRN"],
     "bank": "Emirates NBD",
-    "iban_aed": "AE12 0260 0010 1234 5678 9012",
-    "swift": "EBILAEAD",
+    "iban_aed": os.environ["IBAN_AED"],
+    "swift": os.environ["SWIFT_BIC"],
     "payment_methods": "Bank transfer, Stripe (USD/AED), Wise",
 }
 
@@ -77,6 +79,10 @@ BUSINESS = {
 
 def fmt_aed(amount: float) -> str:
     return f"AED {amount:,.2f}".replace(".00", "")
+
+
+def fmt_date(d) -> str:
+    return f"{d.day} {d.strftime('%B %Y')}"
 
 
 def build_proposal_text(p: dict, b: dict) -> str:
@@ -117,7 +123,7 @@ def build_proposal_text(p: dict, b: dict) -> str:
 PROPOSAL
 
 {p['company']} — {p['package']} Package
-Date: {p['proposal_date'].strftime('%-d %B %Y')}
+Date: {fmt_date(p['proposal_date'])}
 Ref: {p['ref']}
 
 ---
@@ -152,7 +158,7 @@ Deliverables:
 - Team training covering all {'workflows' if p['workflows'] > 1 else 'workflow steps'}
 - 60 days post-launch support
 
-Workflow details will be scoped during the kickoff session on {p['kickoff_date'].strftime('%-d %B %Y')}.
+Workflow details will be scoped during the kickoff session on {fmt_date(p['kickoff_date'])}.
 
 ---
 
@@ -191,7 +197,7 @@ PROJECT TIMELINE
 
 TERMS AND CONDITIONS
 
-- This quote is valid for 30 days from issue date ({p['proposal_date'].strftime('%-d %B %Y')}).
+- This quote is valid for 30 days from issue date ({fmt_date(p['proposal_date'])}).
 - Scope changes require written approval and may adjust timeline and price.
 - Deliverables remain the property of {b['legal_entity']} until full payment is received.
 - Late payment: 2% per month after 14 days overdue.

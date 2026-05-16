@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "trigger dev",
-    "deploy": "trigger deploy"
+    "deploy": "trigger deploy",
+    "test": "vitest run"
   },
   "dependencies": {
-    "@trigger.dev/sdk": "4.4.6"
+    "@anthropic-ai/sdk": "^0.96.0",
+    "@mendable/firecrawl-js": "^4.23.0",
+    "@trigger.dev/sdk": "4.4.6",
+    "googleapis": "^171.4.0"
   },
   "devDependencies": {
     "@trigger.dev/build": "4.4.6",
-    "trigger.dev": "4.4.6"
+    "trigger.dev": "4.4.6",
+    "vitest": "^4.1.6"
   }
 }

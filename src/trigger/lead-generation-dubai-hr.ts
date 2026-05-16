@@ -27,7 +27,7 @@ export interface ScoredLead extends RawLead {
 
 const SCORE_THRESHOLD = 4;
 const MAX_RESULTS_PER_QUERY = 10;
-const SHEET_ID = "1Vxlq5so-SioJydpe3HssccVuq2Vs2Ndl0nx5ga8FK9U";
+const SHEET_ID = "1NUmLEqQFenmpqaGMH8FdGXsMwcTSwyqBqMUMTvGUyJY";
 const SHEET_TAB = "Leads & Pipeline fttah";
 const SEARCH_QUERIES = [
   "HR consultants Dubai",

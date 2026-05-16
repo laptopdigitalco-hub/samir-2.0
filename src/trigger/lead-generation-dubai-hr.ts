@@ -195,13 +195,12 @@ async function scrapeAndExtractAll(
 // ── Phase 3 + 5: Google Sheets ────────────────────────────────────────────────
 
 function getGoogleAuth() {
-  const auth = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID!,
-    process.env.GOOGLE_CLIENT_SECRET!,
-    "http://localhost:3000"
-  );
-  auth.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN! });
-  return auth;
+  const keyJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON!;
+  const credentials = JSON.parse(keyJson);
+  return new google.auth.GoogleAuth({
+    credentials,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
 }
 
 async function readExistingDomains(): Promise<Set<string>> {

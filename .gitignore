@@ -5,6 +5,7 @@ node_modules/
 .tmp/
 credentials.json
 token.json
+*-key.json
 .mcp.json
 .claude/mcp.json
 *.pyc

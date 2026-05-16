@@ -33,6 +33,18 @@ const SEARCH_QUERIES = [
   "HR outsourcing company Dubai UAE",
 ];
 
+// ── Pure Functions ────────────────────────────────────────────────────────────
+
+export function normalizeDomain(url: string): string {
+  try {
+    const withProtocol = url.startsWith("http") ? url : `https://${url}`;
+    const parsed = new URL(withProtocol);
+    return parsed.hostname.replace(/^www\./i, "").toLowerCase();
+  } catch {
+    return url.toLowerCase();
+  }
+}
+
 // ── Scheduled Task ────────────────────────────────────────────────────────────
 
 export const leadGenerationDubaiHr = schedules.task({

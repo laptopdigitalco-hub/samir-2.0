@@ -45,6 +45,18 @@ export function normalizeDomain(url: string): string {
   }
 }
 
+export function scoreLead(lead: RawLead): number {
+  let score = 0;
+  if (lead.email) score += 2;
+  if (lead.phone) score += 2;
+  if (lead.website) score += 1;
+  if (lead.services_summary && /hr|people|talent|workforce/i.test(lead.services_summary)) score += 2;
+  if (lead.address && /dubai|uae/i.test(lead.address)) score += 1;
+  if (lead.headcount_signal) score += 1;
+  if (lead.linkedin_url) score += 1;
+  return Math.min(score, 10);
+}
+
 // ── Scheduled Task ────────────────────────────────────────────────────────────
 
 export const leadGenerationDubaiHr = schedules.task({

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { normalizeDomain, scoreLead } from "../lead-generation-dubai-hr";
+import { normalizeDomain, scoreLead, deduplicateLeads } from "../lead-generation-dubai-hr";
 import type { RawLead } from "../lead-generation-dubai-hr";
 
 describe("normalizeDomain", () => {
@@ -81,5 +81,45 @@ describe("scoreLead", () => {
       source_title: "Perfect HR",
     };
     expect(scoreLead(perfect)).toBe(10);
+  });
+});
+
+// ── deduplicateLeads ──────────────────────────────────────────────────────────
+
+const makeLead = (website: string | null): RawLead => ({
+  ...baseLead,
+  website,
+  source_url: website ?? "https://unknown.com",
+});
+
+describe("deduplicateLeads", () => {
+  it("removes leads whose domain already exists in the sheet", () => {
+    const existing = new Set(["gulf-hr.com"]);
+    const leads = [makeLead("https://www.gulf-hr.com"), makeLead("https://newco.ae")];
+    const result = deduplicateLeads(leads, existing);
+    expect(result).toHaveLength(1);
+    expect(result[0].website).toBe("https://newco.ae");
+  });
+
+  it("removes duplicate domains within the same batch", () => {
+    const leads = [
+      makeLead("https://same.com/page1"),
+      makeLead("https://www.same.com/page2"),
+    ];
+    const result = deduplicateLeads(leads, new Set());
+    expect(result).toHaveLength(1);
+    expect(result[0].website).toBe("https://same.com/page1");
+  });
+
+  it("keeps leads with null website", () => {
+    const leads = [makeLead(null), makeLead("https://valid.com")];
+    const result = deduplicateLeads(leads, new Set());
+    expect(result).toHaveLength(2);
+  });
+
+  it("returns empty array when all leads are duplicates", () => {
+    const existing = new Set(["a.com", "b.com"]);
+    const leads = [makeLead("https://a.com"), makeLead("https://b.com")];
+    expect(deduplicateLeads(leads, existing)).toHaveLength(0);
   });
 });

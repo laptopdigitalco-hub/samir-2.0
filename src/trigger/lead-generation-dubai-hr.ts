@@ -57,6 +57,17 @@ export function scoreLead(lead: RawLead): number {
   return Math.min(score, 10);
 }
 
+export function deduplicateLeads(leads: RawLead[], existingDomains: Set<string>): RawLead[] {
+  const seen = new Set<string>(existingDomains);
+  return leads.filter((lead) => {
+    if (!lead.website) return true;
+    const domain = normalizeDomain(lead.website);
+    if (seen.has(domain)) return false;
+    seen.add(domain);
+    return true;
+  });
+}
+
 // ── Scheduled Task ────────────────────────────────────────────────────────────
 
 export const leadGenerationDubaiHr = schedules.task({

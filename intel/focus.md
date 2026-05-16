@@ -9,7 +9,7 @@
 4. Creating custom templates for clients
 
 ## Hard Deadlines
-- **2026-05-15** — Agency opening
+- **2026-05-15** — Agency opening ✓ (launched)
 
 ## Active Projects
 - **HR Consultant Automation** — automating client onboarding, data scraping, and market research for an HR consultant client

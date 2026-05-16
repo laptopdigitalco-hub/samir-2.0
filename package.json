@@ -7,14 +7,12 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.96.0",
     "@mendable/firecrawl-js": "^4.23.0",
-    "@trigger.dev/sdk": "4.4.6",
-    "googleapis": "^171.4.0"
+    "@trigger.dev/sdk": "4.4.6"
   },
   "devDependencies": {
     "@trigger.dev/build": "4.4.6",
-    "trigger.dev": "4.4.6",
+    "trigger.dev": "^4.4.6",
     "vitest": "^4.1.6"
   }
 }
